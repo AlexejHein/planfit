@@ -1,0 +1,10 @@
+.home {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+mat-card-actions {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
