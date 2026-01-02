@@ -1,8 +1,29 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { HomePage } from './features/home/pages/home-page/home-page';
 
-const routes: Routes = [];
 
+const routes: Routes = [
+  { path: '', component: HomePage },
+
+  {
+    path: 'plans',
+    loadChildren: () =>
+      import('./features/plans/plans-module').then(m => m.PlansModule),
+  },
+  {
+    path: 'workout',
+    loadChildren: () =>
+      import('./features/workout/workout-module').then(m => m.WorkoutModule),
+  },
+  {
+    path: 'progress',
+    loadChildren: () =>
+      import('./features/progress/progress-module').then(m => m.ProgressModule),
+  },
+
+  { path: '**', redirectTo: '' },
+];
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule]
