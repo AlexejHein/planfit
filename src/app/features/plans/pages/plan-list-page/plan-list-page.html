@@ -1,1 +1,18 @@
-<p>plan-list-page works!</p>
+<div class="header">
+  <h2>Plans</h2>
+  <a mat-raised-button color="primary" routerLink="create">Create Plan</a>
+</div>
+
+<mat-card *ngFor="let p of plans" class="plan-card">
+  <mat-card-title>{{ p.name }}</mat-card-title>
+  <mat-card-subtitle>{{ p.items.length }} exercises</mat-card-subtitle>
+
+  <mat-card-actions>
+    <a mat-button [routerLink]="['/plans', p.id]">Open</a>
+    <button mat-button (click)="duplicate(p.id)">Duplicate</button>
+    <button mat-button color="warn" (click)="remove(p.id)">Delete</button>
+    <a mat-raised-button color="accent" routerLink="/workout">Start Workout</a>
+  </mat-card-actions>
+</mat-card>
+
+<p *ngIf="plans.length === 0">No plans yet. Create your first one.</p>

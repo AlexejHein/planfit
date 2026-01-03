@@ -1,1 +1,24 @@
-<p>plan-create-page works!</p>
+<h2>Create Plan</h2>
+
+<mat-card>
+  <mat-card-content>
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Plan name</mat-label>
+      <input matInput [(ngModel)]="name" />
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" style="width: 100%;">
+      <mat-label>Exercises</mat-label>
+      <mat-select multiple [(ngModel)]="selected">
+        <mat-option *ngFor="let ex of exercises" [value]="ex.id">
+          {{ ex.name }} • {{ ex.muscleGroup }} • {{ ex.equipment }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+
+  <mat-card-actions>
+    <button mat-raised-button color="primary" (click)="save()" [disabled]="!canSave()">Save</button>
+    <a mat-button routerLink="/plans">Cancel</a>
+  </mat-card-actions>
+</mat-card>
