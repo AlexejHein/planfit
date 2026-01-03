@@ -60,4 +60,5 @@ export class PlansService {
   private write(plans: Plan[]) {
     localStorage.setItem(KEY, JSON.stringify(plans));
   }
+
 }
