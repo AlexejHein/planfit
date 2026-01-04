@@ -1,0 +1,32 @@
+<mat-card *ngIf="!plan">
+  <mat-card-title>Plan not found</mat-card-title>
+  <mat-card-content>
+    <p>No plan with id "{{ planId }}" was found.</p>
+    <a mat-raised-button color="primary" routerLink="/plans">Go to Plans</a>
+  </mat-card-content>
+</mat-card>
+
+<mat-card *ngIf="plan">
+  <mat-card-title>Workout: {{ plan.name }}</mat-card-title>
+
+  <mat-card-content>
+    <div *ngFor="let item of plan.items" class="exercise-row">
+      <div class="exercise-name">{{ exerciseName(item.exerciseId) }}</div>
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Reps</mat-label>
+        <input matInput type="number" [(ngModel)]="setsByExercise[item.exerciseId].reps" />
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="field">
+        <mat-label>Weight (kg)</mat-label>
+        <input matInput type="number" [(ngModel)]="setsByExercise[item.exerciseId].weight" />
+      </mat-form-field>
+    </div>
+
+    <div class="actions">
+      <button mat-raised-button color="primary" (click)="saveSession()">Save Workout</button>
+      <a mat-button routerLink="/plans">Back</a>
+    </div>
+  </mat-card-content>
+</mat-card>

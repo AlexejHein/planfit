@@ -1,0 +1,23 @@
+.exercise-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin: 12px 0;
+  flex-wrap: wrap;
+}
+
+.exercise-name {
+  min-width: 180px;
+  font-weight: 600;
+}
+
+.field {
+  width: 160px;
+}
+
+.actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}

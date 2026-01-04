@@ -14,7 +14,7 @@ const routes: Routes = [
   {
     path: 'workout',
     loadChildren: () =>
-      import('./features/workout/workout-module').then(m => m.WorkoutModule),
+      import('./features/workout/workout.routes').then(m => m.WORKOUT_ROUTES),
   },
   {
     path: 'progress',

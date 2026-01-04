@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-workout',
-  standalone: false,
+  standalone: true,
   templateUrl: './workout.html',
   styleUrl: './workout.css',
 })

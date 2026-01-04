@@ -1,9 +1,8 @@
-import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { Routes } from '@angular/router';
 import { Workout } from './workout';
 import { WorkoutSessionPage } from './pages/workout-session-page/workout-session-page';
 
-const routes: Routes = [
+export const WORKOUT_ROUTES: Routes = [
   {
     path: '',
     component: Workout,
@@ -13,9 +12,3 @@ const routes: Routes = [
     ],
   },
 ];
-
-@NgModule({
-  imports: [RouterModule.forChild(routes)],
-  exports: [RouterModule],
-})
-export class WorkoutRoutingModule {}
